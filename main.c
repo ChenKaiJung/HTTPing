@@ -192,7 +192,7 @@ void emit_json(char ok, int seq, double start_ts, stats_t *t_resolve, stats_t *t
             printf("\"tcp_rtt_stats\" : \"%e\", ", -1.0);
 	printf("\"re_tx\" : \"%d\", ", re_tx);
 	printf("\"pmtu\" : \"%d\", ", pmtu);
-	printf("\"tos\" : \"%02x\", ", recv_tos);
+	printf("\"tos\" : \"%02x\" ", recv_tos);
 	printf("}");
 }
 
