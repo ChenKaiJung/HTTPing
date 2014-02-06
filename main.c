@@ -156,40 +156,40 @@ void emit_json(char ok, int seq, double start_ts, stats_t *t_resolve, stats_t *t
 	printf("\"status\" : \"%d\", ", ok);
 	printf("\"seq\" : \"%d\", ", seq);
 	printf("\"start_ts\" : \"%f\", ", start_ts);
-    if (t_resolve!=NULL && t_resolve -> cur_valid)
-            printf("\"resolve_ms\" : \"%e\", ", t_resolve -> cur);
-    else
-            printf("\"resolve_ms\" : \"%e\", ",-1.0);
-    if (t_connect!=NULL && t_connect -> cur_valid)
-            printf("\"connect_ms\" : \"%e\", ", t_connect -> cur);
-    else
-            printf("\"connect_ms\" : \"%e\", ",-1.0);
-    printf("\"request_ms\" : \"%e\", ", t_request -> cur);
-    printf("\"total_ms\" : \"%e\", ", t_total -> cur);
-    printf("\"http_code\" : \"%d\", ", http_code);
-    printf("\"msg\" : \"%s\", ", msg);
-    printf("\"header_size\" : \"%d\", ", header_size);
-    printf("\"data_size\" : \"%d\", ", data_size);
-    printf("\"bps\" : \"%f\", ", Bps);
-    printf("\"host\" : \"%s\", ", host);
-    printf("\"ssl_fingerprint\" : \"%s\", ", ssl_fp ? ssl_fp : "");
-    printf("\"time_offset\" : \"%f\", ", toff_diff_ts);
-    printf("\"tfo_succes\" : \"%s\", ", tfo_succes ? "true" : "false");
-    if (t_ssl !=NULL && t_ssl -> cur_valid)
-            printf("\"ssl_ms\" : \"%e\", ", t_ssl -> cur);
-    else
-            printf("\"ssl_ms\" : \"%e\", ", -1.0);
-    printf("\"write\" : \"%e\", ", t_write -> cur);
-    printf("\"close\" : \"%e\", ", t_close -> cur);
-    printf("\"cookies\" : \"%d\", ", n_cookies);
-    if (stats_to != NULL && stats_to -> cur_valid)
-            printf("\"to\" : \"%e\", ", stats_to -> cur);
-    else
-            printf("\"to\" : \"%e\", ", -1.0);
-    if (tcp_rtt_stats !=NULL && tcp_rtt_stats -> cur_valid)
-            printf("\"tcp_rtt_stats\" : \"%e\", ", tcp_rtt_stats -> cur);
-    else
-            printf("\"tcp_rtt_stats\" : \"%e\", ", -1.0);
+	if (t_resolve!=NULL && t_resolve -> cur_valid)
+		printf("\"resolve_ms\" : \"%e\", ", t_resolve -> cur);
+	else
+		printf("\"resolve_ms\" : \"%e\", ",-1.0);
+	if (t_connect!=NULL && t_connect -> cur_valid)
+		printf("\"connect_ms\" : \"%e\", ", t_connect -> cur);
+	else
+		printf("\"connect_ms\" : \"%e\", ",-1.0);
+	printf("\"request_ms\" : \"%e\", ", t_request -> cur);
+	printf("\"total_ms\" : \"%e\", ", t_total -> cur);
+	printf("\"http_code\" : \"%d\", ", http_code);
+	printf("\"msg\" : \"%s\", ", msg);
+	printf("\"header_size\" : \"%d\", ", header_size);
+	printf("\"data_size\" : \"%d\", ", data_size);
+	printf("\"bps\" : \"%f\", ", Bps);
+	printf("\"host\" : \"%s\", ", host);
+	printf("\"ssl_fingerprint\" : \"%s\", ", ssl_fp ? ssl_fp : "");
+	printf("\"time_offset\" : \"%f\", ", toff_diff_ts);
+	printf("\"tfo_succes\" : \"%s\", ", tfo_succes ? "true" : "false");
+	if (t_ssl !=NULL && t_ssl -> cur_valid)
+		printf("\"ssl_ms\" : \"%e\", ", t_ssl -> cur);
+	else
+		printf("\"ssl_ms\" : \"%e\", ", -1.0);
+	printf("\"write\" : \"%e\", ", t_write -> cur);
+	printf("\"close\" : \"%e\", ", t_close -> cur);
+	printf("\"cookies\" : \"%d\", ", n_cookies);
+	if (stats_to != NULL && stats_to -> cur_valid)
+		printf("\"to\" : \"%e\", ", stats_to -> cur);
+	else
+		printf("\"to\" : \"%e\", ", -1.0);
+	if (tcp_rtt_stats !=NULL && tcp_rtt_stats -> cur_valid)
+		printf("\"tcp_rtt_stats\" : \"%e\", ", tcp_rtt_stats -> cur);
+	else
+		printf("\"tcp_rtt_stats\" : \"%e\", ", -1.0);
 	printf("\"re_tx\" : \"%d\", ", re_tx);
 	printf("\"pmtu\" : \"%d\", ", pmtu);
 	printf("\"tos\" : \"%02x\" ", recv_tos);
