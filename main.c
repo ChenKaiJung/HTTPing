@@ -164,8 +164,22 @@ void emit_json(char ok, int seq, double start_ts, stats_t *t_resolve, stats_t *t
 		printf("\"connect_ms\" : \"%e\", ", t_connect -> cur);
 	else
 		printf("\"connect_ms\" : \"%e\", ",-1.0);
-	printf("\"request_ms\" : \"%e\", ", t_request -> cur);
-	printf("\"total_ms\" : \"%e\", ", t_total -> cur);
+	if (t_write!=NULL)
+		printf("\"write\" : \"%e\", ", t_write -> cur);
+	else
+		printf("\"write\" : \"%e\", ", -1.0);		
+	if (t_request!=NULL)
+		printf("\"request_ms\" : \"%e\", ", t_request -> cur);
+	else
+		printf("\"request_ms\" : \"%e\", ",-1.0);	
+	if (t_close!=NULL)	
+		printf("\"close\" : \"%e\", ", t_close -> cur);
+	else
+		printf("\"close\" : \"%e\", ", -1.0);				
+	if (t_total!=NULL)
+		printf("\"total_ms\" : \"%e\", ", t_total -> cur);
+	else
+		printf("\"total_ms\" : \"%e\", ", -1.0);		
 	printf("\"http_code\" : \"%d\", ", http_code);
 	printf("\"msg\" : \"%s\", ", msg);
 	printf("\"header_size\" : \"%d\", ", header_size);
@@ -178,9 +192,7 @@ void emit_json(char ok, int seq, double start_ts, stats_t *t_resolve, stats_t *t
 	if (t_ssl !=NULL && t_ssl -> cur_valid)
 		printf("\"ssl_ms\" : \"%e\", ", t_ssl -> cur);
 	else
-		printf("\"ssl_ms\" : \"%e\", ", -1.0);
-	printf("\"write\" : \"%e\", ", t_write -> cur);
-	printf("\"close\" : \"%e\", ", t_close -> cur);
+		printf("\"ssl_ms\" : \"%e\", ", -1.0);	
 	printf("\"cookies\" : \"%d\", ", n_cookies);
 	if (stats_to != NULL && stats_to -> cur_valid)
 		printf("\"to\" : \"%e\", ", stats_to -> cur);
